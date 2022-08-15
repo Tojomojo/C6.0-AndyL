@@ -1,4 +1,5 @@
 var weather = {
+    // fetcing the API key
     apiKey: "edf7fec7ac2e5e83eded6c4841ba66a0",
     fetchWeather: function (city) {
         fetch(
@@ -13,6 +14,7 @@ var weather = {
             })
             .then((data) => this.displayWeather(data));
     },
+    //displaying the api data
     displayWeather: function (data) {
         const { name } = data;
         const { icon, description } = data.main;
@@ -34,6 +36,7 @@ var weather = {
     },
 };
 
+// search bar function
 document.querySelector(".search-bar").addEventListener("click", function () {
     weather.search();
 });
@@ -45,6 +48,5 @@ document
             weather.search();
         }
     });
-
-
+// Hopefully this works
 weather.fetchWeather("Denver");
